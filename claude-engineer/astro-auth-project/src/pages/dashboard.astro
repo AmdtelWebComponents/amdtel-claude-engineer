@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { isAuthenticated } from '../auth';
+
+if (!isAuthenticated(Astro.request)) {
+  return Astro.redirect('/login');
+}
+---
+
+<Layout title="Dashboard">
+  <main>
+    <h1>Dashboard</h1>
+    <p>Welcome to your protected dashboard!</p>
+    <a href="/logout">Logout</a>
+  </main>
+</Layout>
